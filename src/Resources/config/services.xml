@@ -26,6 +26,12 @@
     <services>
         <defaults public="true" />
 
+        <service id="sylius.context.channel.request_attribute_based" class="Sylius\ShopApiPlugin\ChannelContext\RequestAttributeBasedChannelContext" public="false">
+            <argument type="service" id="sylius.repository.channel" />
+            <argument type="service" id="request_stack" />
+            <tag name="sylius.context.channel" priority="100"/>
+        </service>
+
         <service id="sylius.shop_api_plugin.checker.promotion_coupon_eligibility_checker"
                  class="Sylius\ShopApiPlugin\Checker\PromotionCouponEligibilityChecker">
             <argument type="service" id="sylius.promotion_eligibility_checker"/>
